@@ -5,7 +5,7 @@ import numpy as np
 
 # ----------------------------------------------------
 
-file = "mand results/mand_5000_100.txt"
+file = "mand results/mand_500_100.txt"
 
 data = np.loadtxt(file, dtype="int", comments="#", delimiter=",", unpack=False)
 

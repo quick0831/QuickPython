@@ -36,7 +36,7 @@ for i in range(xl):
     for j in range(yl):
         a[j][i]=f.mand(x[i]+y[j]*1j,limit)
     #print(i)
-    f.progress(i,size)
+    f.progress(i+1,size)
 
 plt.imshow(a, interpolation='nearest', cmap='bone', origin='lower')
 #plt.show()
@@ -56,5 +56,5 @@ for j in range(yl):
 #dat = a.tostring()
 #data = str(dat, encoding='utf-8')
 #a.tofile("Results.txt")
-np.savetxt("mand_10000_500.txt", a, delimiter=',', fmt="%d")
+np.savetxt("mand results/mand_"+str(size)+"_"+str(limit)+".txt", a, delimiter=',', fmt="%d")
 #file.write(data)

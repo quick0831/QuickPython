@@ -1,0 +1,7 @@
+Run List
+Finished  5000x5000 lim=100
+	File:mand_5000_100.txt
+Finished  5000x5000 lim=1000
+	File:mand_5000_1000.txt
+          10000x10000 lim=500
+	File:mand_10000_500.txt

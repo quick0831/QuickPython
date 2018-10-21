@@ -7,3 +7,5 @@ Finished  5000x5000 lim=1000
 	File:mand_10000_500.txt
 Finished  1000x1000 lim=5000
 	File:mand_1000_5000.txt
+Finished  1000x1000 lim=10000
+	File:mand_1000_10000.txt

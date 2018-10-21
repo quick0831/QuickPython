@@ -13,8 +13,8 @@ size=500
 limit=100
 
 #-------------------------------------
-print("size = ",size)
-print("limit = ",limit)
+print("size =",size)
+print("limit =",limit)
 
 np.set_printoptions(threshold=np.inf)
 

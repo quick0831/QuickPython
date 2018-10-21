@@ -14,6 +14,8 @@ size=5000
 limit=5000
 
 #-------------------------------------
+print("size = ",size)
+print("limit = ",limit)
 
 plt.figure(num=5)
 

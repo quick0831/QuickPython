@@ -5,7 +5,7 @@ import numpy as np
 
 # ----------------------------------------------------
 
-file = "mand results/mand_100_500.txt"
+file = "mand results/mand_5000_100.txt"
 
 data = np.loadtxt(file, dtype="int", comments="#", delimiter=",", unpack=False)
 
@@ -16,7 +16,8 @@ plt.xticks(())
 plt.yticks(())
 plt.xlim((-0.5, k-0.5))
 plt.ylim((0, k))
-plt.imshow(data, interpolation='nearest', cmap='bone', origin='lower')
+plt.imshow(data, interpolation='nearest', cmap='jet', origin='lower')
+plt.colorbar()
 plt.show()
 
 """

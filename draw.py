@@ -5,17 +5,20 @@ import numpy as np
 
 # ----------------------------------------------------
 
-data = np.zeros((5000,5000))
+file = "mand results/mand_100_500.txt"
+
+data = np.loadtxt(file, dtype="int", comments="#", delimiter=",", unpack=False)
 
 # ----------------------------------------------------
-"""
+k=len(data)
+
 plt.xticks(())
 plt.yticks(())
-plt.xlim((-2, 1))
-plt.ylim((-1.5, 1.5))
-plt.imshow(data, interpolation='nearest', cmap='bone', origin='upper')
+plt.xlim((-0.5, k-0.5))
+plt.ylim((0, k))
+plt.imshow(data, interpolation='nearest', cmap='bone', origin='lower')
 plt.show()
-"""
+
 """
 k=""
 for j in range(5000):
@@ -23,5 +26,3 @@ for j in range(5000):
     if j != 4999:
         k=k+","
 """
-np.set_printoptions(threshold=np.inf)
-print(data)

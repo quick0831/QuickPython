@@ -8,7 +8,7 @@ import numpy as np
 #-------------------------------------
 
 # How big the data is
-size=1000
+size=5000
 
 # How strict the process is
 limit=5000

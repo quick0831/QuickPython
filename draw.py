@@ -5,9 +5,9 @@ import numpy as np
 
 # ----------------------------------------------------
 
-file = "mand results/mand_500_100.txt"
+file = "mand_1000_5000"
 
-data = np.loadtxt(file, dtype="int", comments="#", delimiter=",", unpack=False)
+data = np.loadtxt("mand results/"+file+".txt", dtype="int", comments="#", delimiter=",", unpack=False)
 
 # ----------------------------------------------------
 k=len(data)
@@ -17,7 +17,8 @@ plt.yticks(())
 plt.xlim((-0.5, k-0.5))
 plt.ylim((0, k))
 plt.imshow(data, interpolation='nearest', cmap='jet', origin='lower')
-plt.colorbar()
+#plt.colorbar()
+plt.savefig("mand results/pics/"+file+".png")
 plt.show()
 
 """

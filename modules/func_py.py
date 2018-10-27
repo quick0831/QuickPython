@@ -10,6 +10,7 @@ def mand(c,lim):#Manderbrot set
         n+=1
         #print(n)
     return n
+
 def zeta(s,lim):
     a=0+0j
     for i in range(lim):

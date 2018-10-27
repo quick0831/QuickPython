@@ -1,6 +1,6 @@
 import sys
 sys.path.append("modules")
-import functions as f
+import func_py as f
 #print(f.mand(0,0,500))
 import numpy as np
 

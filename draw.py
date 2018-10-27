@@ -2,6 +2,7 @@
 # With matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
+import matplotlib.colors as colors
 
 # ----------------------------------------------------
 
@@ -12,11 +13,13 @@ data = np.loadtxt("mand results/"+file+".txt", dtype="int", comments="#", delimi
 # ----------------------------------------------------
 k=len(data)
 
+ax = plt.figure()
+
 plt.xticks(())
 plt.yticks(())
 plt.xlim((-0.5, k-0.5))
 plt.ylim((0, k))
-plt.imshow(data, interpolation='nearest', cmap='jet', origin='lower')
+plt.imshow(data, interpolation='nearest', norm=colors.LogNorm(vmin=1, vmax=k), cmap="PuBu_r", origin='lower')
 #plt.colorbar()
 plt.savefig("mand results/pics/"+file+".png")
 plt.show()

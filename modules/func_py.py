@@ -2,11 +2,11 @@
 
 import sys
 
-def mand(c,lim):#Manderbrot set
+def mand(c,lim,pow=2):#Manderbrot set
     z=0+0j
     n=1
     while abs(z)<=2 and n<=lim:
-        z=z**2+c
+        z=z**pow+c
         n+=1
         #print(n)
     return n

@@ -6,9 +6,9 @@ import matplotlib.colors as colors
 
 # ----------------------------------------------------
 
-file = "mand_1000_5000"
+file = "mand_5000_1000"
 
-data = np.loadtxt("mand results/"+file+".txt", dtype="int", comments="#", delimiter=",", unpack=False)
+data = np.loadtxt("mand results/2/"+file+".txt", dtype="int", comments="#", delimiter=",", unpack=False)
 
 # ----------------------------------------------------
 k=len(data)
@@ -19,10 +19,10 @@ plt.xticks(())
 plt.yticks(())
 plt.xlim((-0.5, k-0.5))
 plt.ylim((0, k))
-plt.imshow(data, interpolation='nearest', norm=colors.LogNorm(vmin=1, vmax=k), cmap="PuBu_r", origin='lower')
+plt.imshow(data, interpolation='nearest', norm=colors.LogNorm(), cmap="autumn", origin='lower')
 #plt.colorbar()
 plt.savefig("mand results/pics/"+file+".png")
-plt.show()
+#plt.show()
 
 """
 k=""

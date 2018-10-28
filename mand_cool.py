@@ -12,16 +12,19 @@ import matplotlib.colors as colors
 size=500
 
 # How strict the process is
-limit=500
+limit=100
+
+power=3
 
 #-------------------------------------
 print("size =",size)
 print("limit =",limit)
+print("power =",power)
 
 np.set_printoptions(threshold=np.inf)
 
-x = np.linspace(-2, 1, size)
-y = np.linspace(-1.5, 1.5, size)
+x = np.linspace(-2, 2, size)
+y = np.linspace(-2, 2, size)
 xl=len(x)
 yl=len(y)
 
@@ -29,11 +32,11 @@ a=np.zeros((xl,yl),dtype = np.int)
 # Generate Datas
 for i in range(xl):
     for j in range(yl):
-        a[j][i]=f.mand(x[i]+y[j]*1j,limit)
+        a[j][i]=f.mand(x[i]+y[j]*1j,limit,pow=power)
     #print(i)
     f.progress(i+1,size)
 
-np.savetxt("mand results/2/mand_"+str(size)+"_"+str(limit)+".txt", a, delimiter=',', fmt="%d")
+np.savetxt("mand results/more/mand_"+str(size)+"_"+str(limit)+"_"+str(power)+".txt", a, delimiter=',', fmt="%d")
 
 #-------------------------------------
 
@@ -44,5 +47,5 @@ plt.xlim((-0.5, size-0.5))
 plt.ylim((0, size))
 plt.imshow(a, interpolation='nearest', norm=colors.LogNorm(), cmap="autumn", origin='lower')
 #plt.colorbar()
-plt.savefig("mand results/pics/mand_"+str(size)+"_"+str(limit)+".png")
-plt.show()
+plt.savefig("mand results/more_pics/mand_"+str(size)+"_"+str(limit)+"_"+str(power)+".png")
+#plt.show()

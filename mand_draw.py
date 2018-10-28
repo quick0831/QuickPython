@@ -4,6 +4,7 @@ import func_py as f
 #print(f.mand(0,0,500))
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib.colors as colors
 
 #-------------------------------------
 
@@ -36,11 +37,12 @@ np.savetxt("mand results/mand_"+str(size)+"_"+str(limit)+".txt", a, delimiter=',
 
 #-------------------------------------
 
+ax = plt.figure()
 plt.xticks(())
 plt.yticks(())
 plt.xlim((-0.5, size-0.5))
 plt.ylim((0, size))
-plt.imshow(a, interpolation='nearest', cmap='jet', origin='lower')
+plt.imshow(data, interpolation='nearest', norm=colors.LogNorm(vmin=1, vmax=size), cmap="PuBu_r", origin='lower')
 #plt.colorbar()
 plt.savefig("mand results/pics/mand_"+str(size)+"_"+str(limit)+".png")
 plt.show()

@@ -1,2 +1,3 @@
 # QuickPython
-## Creating Manderbrot Set Now
+## Create Manderbrot Set
+## And studying Zeta functions now

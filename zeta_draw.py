@@ -1,7 +1,6 @@
 import sys
 sys.path.append("modules")
 import func_py as f
-#print(f.mand(0,0,500))
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.colors as colors
@@ -9,40 +8,45 @@ import matplotlib.colors as colors
 #-------------------------------------
 
 # How big the data is
-size=500
+size=250
 
 # How strict the process is
-limit=500
+limit=100
+
+# How wide to see
+scale=10
 
 #-------------------------------------
 print("size =",size)
 print("limit =",limit)
+print("scale =",scale)
 
 np.set_printoptions(threshold=np.inf)
 
-x = np.linspace(-2, 1, size)
-y = np.linspace(-1.5, 1.5, size)
+x = np.linspace(-scale, scale, size)
+y = np.linspace(-scale, scale, size)
 xl=len(x)
 yl=len(y)
 
-a=np.zeros((xl,yl),dtype = np.int)
+a=np.zeros((xl,yl),dtype = np.float)
 # Generate Datas
 for i in range(xl):
     for j in range(yl):
-        a[j][i]=f.mand(x[i]+y[j]*1j,limit)
+        a[j][i] = abs(f.zeta(x[i]+y[j]*1j,limit))
     #print(i)
     f.progress(i+1,size)
 
-np.savetxt("mand results/2/mand_"+str(size)+"_"+str(limit)+".txt", a, delimiter=',', fmt="%d")
+np.savetxt("zeta results/txt/zeta_"+str(size)+"_"+str(limit)+"_"+str(scale)+".txt", a, delimiter=',')
 
 #-------------------------------------
 
 ax = plt.figure()
-plt.xticks(())
-plt.yticks(())
+plt.xticks([-0.5,size-0.5],[-scale,scale])
+plt.yticks([-0.5,size-0.5],[-scale,scale])
 plt.xlim((-0.5, size-0.5))
-plt.ylim((0, size))
-plt.imshow(a, interpolation='nearest', norm=colors.LogNorm(), cmap="autumn", origin='lower')
-#plt.colorbar()
-plt.savefig("mand results/pics/mand_"+str(size)+"_"+str(limit)+".png")
+plt.ylim((-0.5, size-0.5))
+plt.imshow(a, interpolation='nearest', norm=colors.LogNorm(), cmap="Blues", origin='lower')
+cbar=plt.colorbar()
+cbar.set_ticks([1,10,100])
+plt.savefig("zeta results/pics/zeta_"+str(size)+"_"+str(limit)+"_"+str(scale)+".png")
 plt.show()

@@ -15,7 +15,7 @@ def zeta(s,lim):
     a=0+0j
     for i in range(lim):
         a+=(i+1)**(s*-1)
-        print(a)
+        #print(a)
     return a
 
 

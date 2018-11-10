@@ -26,7 +26,7 @@ def zeta(s,lim):
         return k
     else:
         xi=k*sp.gamma(s/2)*(pi**(-s/2))
-        return xi/(sp.gamma((1-s)/2)*(pi**((1+s)/2)))
+        return xi/(sp.gamma((1-s)/2)*(pi**(-(1-s)/2)))
 
 # --- Progress Bar ----------
 def progress(count, total, status=''):

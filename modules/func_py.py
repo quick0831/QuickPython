@@ -1,6 +1,8 @@
 # Important Functions
 
 import sys
+import scipy.special as sp
+from scipy import pi
 
 def mand(c,lim,pow=2):#Manderbrot set
     z=0+0j
@@ -11,13 +13,20 @@ def mand(c,lim,pow=2):#Manderbrot set
         #print(n)
     return n
 
-def zeta(s,lim):
+def zeta_r(s,lim):#only run s>1
     a=0+0j
     for i in range(lim):
         a+=(i+1)**(s*-1)
         #print(a)
     return a
 
+def zeta(s,lim):
+    k = zeta_r(s,lim)
+    if s>1:
+        return k
+    else:
+        xi=k*sp.gamma(s/2)*(pi**(-s/2))
+        return xi/(sp.gamma((1-s)/2)*(pi**((1+s)/2)))
 
 # --- Progress Bar ----------
 def progress(count, total, status=''):

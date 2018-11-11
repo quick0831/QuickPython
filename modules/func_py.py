@@ -21,12 +21,10 @@ def zeta_r(s,lim):#only run s>1
     return a
 
 def zeta(s,lim):
-    k = zeta_r(s,lim)
     if s>1:
-        return k
+        return zeta_r(s,lim)
     else:
-        xi=k*sp.gamma(s/2)*(pi**(-s/2))
-        return xi/(sp.gamma((1-s)/2)*(pi**(-(1-s)/2)))
+        return zeta_r(1-s,lim)*sp.gamma((1-s)/2)*(pi**(s/2-(1-s)/2))/sp.gamma(s/2)
 
 # --- Progress Bar ----------
 def progress(count, total, status=''):

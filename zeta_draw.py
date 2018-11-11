@@ -41,12 +41,12 @@ np.savetxt("zeta results/txt/zeta_"+str(size)+"_"+str(limit)+"_"+str(scale)+".tx
 #-------------------------------------
 
 ax = plt.figure()
-plt.xticks([-0.5,size-0.5],[-scale,scale])
+plt.xticks([-0.5,size*11/20-0.5,size-0.5],[-scale,1/2,scale])
 plt.yticks([-0.5,size-0.5],[-scale,scale])
 plt.xlim((-0.5, size-0.5))
 plt.ylim((-0.5, size-0.5))
 plt.imshow(a, interpolation='nearest', norm=colors.LogNorm(), cmap="Blues", origin='lower')
 cbar=plt.colorbar()
-cbar.set_ticks([1,10,100])
+cbar.set_ticks([10**-3,10**-2,10**-1,1,10,100])
 plt.savefig("zeta results/pics/zeta_"+str(size)+"_"+str(limit)+"_"+str(scale)+".png")
 plt.show()

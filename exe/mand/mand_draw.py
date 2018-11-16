@@ -2,11 +2,29 @@
 # -*- coding: utf-8 -*-
 import sys,os
 sys.path.append("../../modules")
-import func_py as f
 #print(f.mand(0,0,500))
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.colors as colors
+
+def mand(c,lim,pow=2):#Manderbrot set
+    z=0+0j
+    n=1
+    while abs(z)<=2 and n<=lim:
+        z=z**pow+c
+        n+=1
+        #print(n)
+    return n
+
+def progress(count, total, status=''):
+    bar_len = 60
+    filled_len = int(round(bar_len * count / float(total)))
+
+    percents = round(100.0 * count / float(total), 1)
+    bar = '=' * filled_len + ' ' * (bar_len - filled_len)
+
+    sys.stdout.write('[%s] %s%s ...%s\r' % (bar, percents, '%', status))
+    sys.stdout.flush()
 
 #-------------------------------------
 
@@ -36,9 +54,9 @@ a=np.zeros((xl,yl),dtype = np.int)
 # Generate Datas
 for i in range(xl):
     for j in range(yl):
-        a[j][i]=f.mand(x[i]+y[j]*1j,limit)
+        a[j][i]=mand(x[i]+y[j]*1j,limit)
     #print(i)
-    f.progress(i+1,size)
+    progress(i+1,size)
 
 np.savetxt("mand results/mand_"+str(size)+"_"+str(limit)+".txt", a, delimiter=',', fmt="%d")
 
